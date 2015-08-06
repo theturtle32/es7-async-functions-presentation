@@ -1,12 +1,7 @@
-"use strict";
+import User from './lib/user';
+import outputResults from './lib/outputResults';
 
-var User = require('./lib/user');
-var outputResults = require('./lib/outputResults');
-
-var user;
-var friends;
-var interests;
-var company;
+var user, friends, interests, company;
 
 console.log("Loading user...");
 User.findByEmail('theturtle32@gmail.com')
@@ -19,10 +14,10 @@ User.findByEmail('theturtle32@gmail.com')
   .then(result => {
     friends = result;
     console.log("Loading interests and company...");
-    return Promise.all([
+    return Promise.all( [
       user.loadInterests(),
       user.loadCompany()
-    ]);
+    ] );
   })
 
   .then((results) => {

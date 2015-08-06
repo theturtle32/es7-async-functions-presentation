@@ -1,6 +1,6 @@
 #ES7 Async Functions
 
-This was written under io.js v1.8.1 and also tested under io.js v2.0.0.
+This was tested under io.js v2.3.4.
 
 ## Usage
 
@@ -26,7 +26,7 @@ Implemented in today's standard basic ES5 Node.js style, with no support from fl
 The same script but using Promises as introduced in ES6.
 
 ### es7-async-functions.js
-The same script again, but implemented using ES7 Async Functions. Could be modified to use ES6 Generators and the `co` library instead with trivial modifications. (`async function` => `function*`, and `await` => `yield`)
+The same script again, but implemented using ES7 Async Functions. Could be modified to use ES6 Generators and the `co` library instead with trivial modifications. (`async function` -> `function*`, and `await` -> `yield`)
 
 ### from_slides
 This folder contains runnable versions of the rest of the small examples from the slide deck.

@@ -1,7 +1,5 @@
-"use strict";
-
-import User from './lib/user'
-import outputResults from './lib/outputResults'
+import User from './lib/user';
+import outputResults from './lib/outputResults';
 
 async function loadAndPrint() {
   try {

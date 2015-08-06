@@ -1,6 +1,7 @@
-var User = require('../lib/user');
+import User from '../lib/user';
 
-var promise = User.findByEmail('theturtle32@gmail.com');
-promise.then(user => console.log(user.name));
-promise.catch(error => console.log(error));
+User.findByEmail('theturtle32@gmail.com')
+    .then (user  => console.log(user.name))
+    .catch(error => console.log(error));
+
 console.log("Loading User");

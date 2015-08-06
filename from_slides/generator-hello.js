@@ -10,22 +10,17 @@ run(function *() {
   console.log("Ok, we're done.");
 });
 
+function isPromise(p) { return p && typeof p.then === 'function'; }
 function run(generator) {
-  var p = Promise.defer();
-  var i = generator();
-  var result = i.next();
-  
-  function step(resolution) {
-    var yielded = i.next(resolution);
-    if (yielded.done) return p.resolve(yielded.value);
-    resolveable = yielded.value;
-    if (resolveable && typeof resolveable['then'] === 'function') {
-      return resolveable.next(step);
-    }
+  return new Promise((resolve, reject) => {
+    var iterator = generator();
     step();
-  }
-
-  var resolveable = result.value;
-  if (resolveable) { resolveable.then(step); }
-  return p;
+    
+    function step(resolution) {
+      var yielded = iterator.next(resolution);
+      if (yielded.done) return resolve(yielded.value);
+      if (isPromise(yielded.value)) return yielded.value.then(step);
+      step(yielded.value);
+    }
+  });
 }
