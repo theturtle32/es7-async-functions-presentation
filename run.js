@@ -1,15 +1,6 @@
 #!/usr/bin/env node
 
-require("babel/register")({
-  blacklist: [
-    'regenerator',
-    'es6.forOf'
-  ],
-  optional: [
-    'asyncToGenerator'
-  ],
-  sourceMap: 'inline'
-});
+require("babel-register");
 
 var script = process.argv[2];
 if (!script) {
