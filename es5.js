@@ -1,7 +1,8 @@
 "use strict";
 
-var User = require('./lib/user');
-var outputResults = require('./lib/outputResults');
+// Babel is needed for loading these two modules
+var User = require('./lib/user').default;
+var outputResults = require('./lib/outputResults').default;
 
 var user, friends, interests, company;
 
